@@ -5,9 +5,9 @@ const http = require('http')
 
 const app = express();
 
-http.createServer(app).listen(3001)
-https.createServer(app).listen(process.env.PORT || 3000)
-// app.listen(3000)
+// http.createServer(app).listen(3001)
+// https.createServer(app).listen(process.env.PORT || 3000)
+ app.listen(process.env.PORT || 3000)
 
 
 
