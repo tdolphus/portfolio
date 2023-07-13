@@ -1,11 +1,14 @@
 // Desc: Main entry point for the application
 const express = require('express');
+const https = require('https');
+var http = require('http')
 
 const app = express();
 
+http.createServer(app).listen(process.env.PORT || 3000)
+https.createServer(app).listen(process.env.PORT || 3001)
 
 
-app.listen(process.env.PORT || 3000);
 
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
