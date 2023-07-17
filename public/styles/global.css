@@ -141,7 +141,8 @@ h1 {
 .carousel .card {
   scroll-snap-align: start;
   padding: 1rem 2rem;
-  height: 500px;
+  height: 450px;
+
   list-style: none;
   background: #fff;
   cursor: pointer;
