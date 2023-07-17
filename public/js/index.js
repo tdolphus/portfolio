@@ -37,14 +37,7 @@ function typewriter(text, elementName, speed = 100) {
 
 typewriter(["Titus Dolphus"], "nameTyped");
 
-setTimeout(() => {
-  typewriter(
-    [
-      "A Front-End Developer with four years of experience working with JavaScript, HTML, CSS, and React to deliver exceptional customer experiences. Adept at creating high quality solutions in a timely manner.",
-    ],
-    "summaryTyped"
-  );
-}, 500);
+
 
 const wrapper = document.querySelector(".wrapper");
 const carousel = document.querySelector(".carousel");
@@ -127,3 +120,13 @@ document.addEventListener("mouseup", dragStop);
 carousel.addEventListener("scroll", infiniteScroll);
 wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
 wrapper.addEventListener("mouseleave", autoPlay);
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+      });
+  });
+});
