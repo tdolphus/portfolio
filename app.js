@@ -25,6 +25,15 @@ app.use(function(request, response, next) {
   next();
 })
 
+function wwwRedirect(req, res, next) {
+  if (req.headers.host.slice(0, 4) === 'www.') {
+      var newHost = req.headers.host.slice(4);
+      return res.redirect(301, req.protocol + '://' + newHost + req.originalUrl);
+  }
+  next();
+};
+
+app.use(wwwRedirect);
 
 
 app.get("/", (req, res) => {
