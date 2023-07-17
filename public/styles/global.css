@@ -192,6 +192,7 @@ h1 {
     padding: 0rem 2rem;
   }
 
+
   #skills h2,
   .wrapper h2,
   #contact h2 {
@@ -205,6 +206,11 @@ h1 {
 @media screen and (max-width: 600px) {
   .wrapper .carousel {
     grid-auto-columns: 100%;
+  }
+
+  .carousel .card h2 {
+    margin: 10px 0 10px;
+  
   }
 }
 
