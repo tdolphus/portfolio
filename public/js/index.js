@@ -130,3 +130,42 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       });
   });
 });
+
+
+
+/** Skils **/
+const skillsIcons = document.querySelectorAll(".skill");
+
+
+const observer = new IntersectionObserver(entries => {
+  // Loop over the entries
+  entries.forEach(entry => {
+    // If the element is visible
+    if (entry.isIntersecting) {
+      // Add the animation class
+      skillsIcons.forEach((icon, i) => {
+        icon.classList.add('skill-animation');
+        icon.style = `animation-delay: ${i*.5}s`
+      });
+      
+    }
+  });
+});
+
+observer.observe(document.querySelector('#skills'));
+
+const contactList = document.querySelector("#contactList");
+
+const contactObserver = new IntersectionObserver(entries => {
+  // Loop over the entries
+  entries.forEach(entry => {
+    // If the element is visible
+    if (entry.isIntersecting) {
+      // Add the animation class
+      contactList.classList.add('skill-animation');
+      
+    }
+  });
+});
+
+contactObserver.observe(document.querySelector('#contact'));

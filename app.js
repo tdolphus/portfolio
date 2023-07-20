@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
 app.use(function (request, response, next) {
-  if (process.env.NODE_ENV != "development" && !request.secure) {
+  if (process.env.NODE_ENV === "production" && !request.secure) {
     return response.redirect("https://" + request.headers.host + request.url);
   }
   next();

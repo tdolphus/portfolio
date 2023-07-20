@@ -1,36 +1,31 @@
-/* Global */
+/********** Global **********/
 html {
   min-height: 100%;
   scroll-behavior: smooth;
-
 }
 body {
   font-size: 16px;
- overflow-y: hidden;
- 
+  overflow-y: hidden;
   color: rgb(49, 180, 49);
   font-family: "Anonymous Pro", monospace;
   background-color: rgb(25, 25, 25);
   scroll-behavior: smooth;
 }
 
-main{
-
+main {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
-  height:100vh;
-  
+  height: 100vh;
 }
 
-.container{
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
   max-width: 1280px;
   margin: 0 auto;
   scroll-snap-align: start;
-  height:100vh;
+  height: 100vh;
   position: relative;
 }
 
@@ -43,8 +38,83 @@ h1 {
   font-size: 5rem;
 }
 
+.skill-animation{
+  animation-name: fadeIn;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
 
+#skills h2,
+.wrapper h2,
+#contact h2 {
+  font-size: 3rem;
+  margin-bottom: 5rem;
+  text-align: center;
+}
 
+.scroll {
+  position: absolute;
+  top: -75px;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  margin-left: -12px;
+  transform: translate(-50%, -50%);
+  border-left: 1px solid rgb(49, 180, 49);
+  border-bottom: 1px solid rgb(49, 180, 49);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-animation: sdb05 1.5s infinite;
+  animation: sdb05 1.5s infinite;
+  box-sizing: border-box;
+}
+@-webkit-keyframes sdb05 {
+  0% {
+    -webkit-transform: rotate(-45deg) translate(0, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: rotate(-45deg) translate(-20px, 20px);
+    opacity: 0;
+  }
+}
+@keyframes sdb05 {
+  0% {
+    transform: rotate(-45deg) translate(0, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-45deg) translate(-20px, 20px);
+    opacity: 0;
+  }
+}
+
+.scrollLink {
+  position: absolute;
+  cursor: pointer;
+  bottom: 20px;
+  left: 50%;
+  z-index: 2;
+  display: inline-block;
+  transform: translate(-50%, -50%);
+
+  font-size: 24px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+.scrollLink:hover {
+  opacity: 0.5;
+}
+
+/********** Header **********/
 #summary {
   display: flex;
   flex-direction: column;
@@ -55,14 +125,18 @@ h1 {
   margin-bottom: 2rem;
 }
 
-
-#skills h2,
-.wrapper h2,
-#contact h2 {
-  font-size: 3rem;
-  margin-bottom: 5rem;
-  text-align: center;
+#summary p{
+  animation: fadeIn 4s;
 }
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+
+/********** Skills **********/
 #skillsList {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -74,14 +148,21 @@ h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
   margin: auto;
+ 
 }
 
-.wrapper {
+.skill{
+  opacity:0;
+}
 
+
+
+/********** Experience **********/
+.wrapper {
   position: relative;
 }
 
-#carouselWrapper{
+#carouselWrapper {
   position: relative;
 }
 .wrapper i {
@@ -155,7 +236,6 @@ h1 {
   font-weight: 500;
   font-size: 1.56rem;
   margin: 30px 0 50px;
-
 }
 .carousel .card span {
   color: #6a6d78;
@@ -172,8 +252,8 @@ h1 {
     font-size: 4rem;
   }
 
-  .scrollLink{
-    display: none!important;
+  .scrollLink {
+    display: none !important;
   }
   .wrapper .carousel {
     grid-auto-columns: calc((100% / 2) - 9px);
@@ -192,7 +272,6 @@ h1 {
     padding: 0rem 2rem;
   }
 
-
   #skills h2,
   .wrapper h2,
   #contact h2 {
@@ -210,10 +289,9 @@ h1 {
 
   .carousel .card h2 {
     margin: 10px 0 10px;
-  
   }
 }
-
+/********** Contact **********/
 
 #contact i {
   font-size: 3rem;
@@ -228,65 +306,6 @@ h1 {
   justify-content: center;
 }
 
-.scroll {
-  position: absolute;
-  top: -75px;
-  left: 50%;
-  width: 24px;
-  height: 24px;
-  margin-left: -12px;
-  transform: translate(-50%, -50%);
-  border-left: 1px solid rgb(49, 180, 49);
-  border-bottom: 1px solid rgb(49, 180, 49);
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  -webkit-animation: sdb05 1.5s infinite;
-  animation: sdb05 1.5s infinite;
-  box-sizing: border-box;
-}
-@-webkit-keyframes sdb05 {
-  0% {
-    -webkit-transform: rotate(-45deg) translate(0, 0);
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: rotate(-45deg) translate(-20px, 20px);
-    opacity: 0;
-  }
-}
-@keyframes sdb05 {
-  0% {
-    transform: rotate(-45deg) translate(0, 0);
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: rotate(-45deg) translate(-20px, 20px);
-    opacity: 0;
-  }
-}
-
-
-
-.scrollLink  {
-  position: absolute;
-  cursor: pointer;
-  bottom: 20px;
-  left: 50%;
-  z-index: 2;
-  display: inline-block;
-  transform: translate(-50%, -50%);
-
-  font-size:24px;
-  letter-spacing: .1em;
-  text-decoration: none;
-  transition: opacity .3s;
-}
-.scrollLink:hover {
-  opacity: .5;
+#contactList{
+  opacity: 0;
 }
